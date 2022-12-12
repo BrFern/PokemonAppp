@@ -12,6 +12,8 @@ function Index({pokemons}) {
                         <a href = {`/pokemon/${i}`}>
                             {pokemon.name.toUpperCase()}
                         </a>
+
+                        
                         
                     </li>
                 )

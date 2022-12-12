@@ -23,7 +23,17 @@ app.get ("/pokemon", (req, res) => {
 })
 
 
+//New Route
 
+app.get("/pokemon/:id"), (req, res) => {
+    res.send(req.params.id);
+}
+
+//Show route
+
+app.get('/pokemon/:indexOfPokemonArray', (req,res) => {
+    res.send(pokemon[req.params.indexOfPokemonArray]);
+});
 
 app.listen(3000, () => {
     console.log('listening')
