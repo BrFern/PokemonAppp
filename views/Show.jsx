@@ -7,6 +7,7 @@ function Show({pokemons}) {
     <div> <h1> Gotta Catch 'Em All!</h1>
            <h2> {pokemons.name.toUpperCase()}</h2>
            <img src={`${pokemons.img}.jpg`} />
+           <a href ='/pokemon'> Back </a>
            
     </div>
   )
