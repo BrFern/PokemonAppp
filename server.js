@@ -32,7 +32,7 @@ app.get("/pokemon/:id"), (req, res) => {
 //Show route
 
 app.get('/pokemon/:indexOfPokemonArray', (req,res) => {
-    res.send(pokemon[req.params.indexOfPokemonArray]);
+    res.render("Show",{pokemons: pokemon[req.params.indexOfPokemonArray]});
 });
 
 app.listen(3000, () => {
