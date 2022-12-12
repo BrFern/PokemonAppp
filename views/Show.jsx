@@ -4,7 +4,11 @@ import pokemon from '../models/pokemon'
 function Show({pokemons}) {
 
   return (
-    <div>{pokemons.name}</div>
+    <div> <h1> Gotta Catch 'Em All!</h1>
+           <h2> {pokemons.name.toUpperCase()}</h2>
+           <img src={`${pokemons.img}.jpg`} />
+           
+    </div>
   )
 }
 
