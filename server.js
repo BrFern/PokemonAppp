@@ -18,7 +18,7 @@ app.get("/" , (req, res) => {
 //GET Route Pokemon
 
 app.get ("/pokemon", (req, res) => {
-    res.render("Index")
+    res.render("Index", {pokemons:pokemon})
     
 })
 
