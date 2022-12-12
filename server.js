@@ -2,9 +2,9 @@ const express = require ('express');
 const pokemon = require('./models/pokemon.js');
 const app = express()
 
+app.set('view engine', 'jsx');
 
-
-
+app.engine('jsx', require('express-react-views').createEngine());
 
 
 
@@ -18,8 +18,12 @@ app.get("/" , (req, res) => {
 //GET Route Pokemon
 
 app.get ("/pokemon", (req, res) => {
-    res.send(pokemon)
+    res.render("Index")
+    
 })
+
+
+
 
 app.listen(3000, () => {
     console.log('listening')
