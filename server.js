@@ -58,9 +58,11 @@ app.get("/pokemon", (req, res) => {
     }) 
   });
   
+//New Route (add new pokemon)
 
-
-
+app.get('/pokemon/new', (req,res) => {
+    res.render('New');
+})
 
 
 //Pokemon route
@@ -74,11 +76,7 @@ app.get("/pokemon/:id", (req, res) => {
   });
 
 
-//New Route (add new pokemon)
 
-app.get('/pokemon/new', (req,res) => {
-    res.render('New');
-})
 
 //POST
 

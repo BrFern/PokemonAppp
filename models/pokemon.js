@@ -1,5 +1,5 @@
 require("dotenv").config();
-const mongoose = require('mongoose');
+const {default: mongoose }= require('mongoose');
 
 
 const pokemonSchema = new mongoose.Schema({

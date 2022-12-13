@@ -28,7 +28,7 @@ const headerTwo = {
 class Show extends Component {
   
   render() 
-  { const pokemon = this.props.pokemon 
+  { const pokemon = this.props.pokemon
     return (
     <body style= {divStyle}>
     <div>
@@ -38,7 +38,7 @@ class Show extends Component {
             {pokemon.name.slice(1)}  */}
             </h2>
             <div>
-           <img style={{display: "block", alignItems: "center", justifyContent: "center", border: "solid", width: "600px", margin: "auto"}} src={`${pokemon.img}.jpg`}  />
+           <img style={{display: "block", alignItems: "center", justifyContent: "center", border: "solid", width: "600px", margin: "auto"}} src={`${pokemon.image}.jpg`}  />
            </div>
            <a href ='/pokemon'> Back </a>
            
