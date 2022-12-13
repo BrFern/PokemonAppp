@@ -7,6 +7,7 @@ const Pokemon = require ("./models/pokemon")
 // import mongoose from "mongoose";
 
 
+
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
@@ -64,9 +65,14 @@ app.get("/pokemon", (req, res) => {
 
 //Pokemon route
 
-app.get("/pokemon/:id"), (req, res) => {
-    res.send(req.params.id);
-}
+app.get("/pokemon/:id", (req, res) => {
+    Pokemon.findById(req.params.id, (err, foundPokemon) => {
+      res.render('Show', {
+        pokemon: foundPokemon
+      });
+    });
+  });
+
 
 //New Route (add new pokemon)
 
@@ -89,7 +95,7 @@ app.post('/pokemon', (req,res) =>
 
 app.get('/pokemon/:indexOfPokemonArray', (req,res) => {
     // pokemons.findById(req.params.id) //Added
-    res.render("Show",{pokemons: pokemon[req.params.indexOfPokemonArray]});
+    // res.render("Show",{pokemons: pokemon[req.params.indexOfPokemonArray]});
         // pokemon : foundPokemon //Added
 });
 

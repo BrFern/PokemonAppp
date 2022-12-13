@@ -1,5 +1,5 @@
-import React from 'react'
-import pokemon from '../models/pokemon'
+import React, {Component} from 'react'
+// import pokemon from '../models/pokemon'
 
 const headingStyle = {
   color: '#ffffff',
@@ -20,19 +20,25 @@ const headerTwo = {
 
 
 
-const imageStyle = {
+// const imageStyle = {
   
-}
-function Show({pokemon}) {
+// }
 
-  return (
+
+class Show extends Component {
+  
+  render() 
+  { const pokemon = this.props.pokemon 
+    return (
     <body style= {divStyle}>
     <div>
-     <h1 style = {headingStyle}> Gotta Catch 'Em All!</h1>
-           <h2 style= {headerTwo}> {pokemon.name.charAt(0).toUpperCase()}
-            {pokemon.name.slice(1)} </h2>
-            <div style = {imageStyle}>
-           <img style={{display: "block", alignItems: "center", justifyContent: "center", border: "solid", width: "600px", margin: "auto"}} src={`${pokemons.img}.jpg`}  />
+     <h1 style = {headingStyle}> Gotta Catch Them All! </h1>
+           <h2 style= {headerTwo}> {pokemon.name}
+             {/* {pokemon.name.charAt(0).toUpperCase()}
+            {pokemon.name.slice(1)}  */}
+            </h2>
+            <div>
+           <img style={{display: "block", alignItems: "center", justifyContent: "center", border: "solid", width: "600px", margin: "auto"}} src={`${pokemon.img}.jpg`}  />
            </div>
            <a href ='/pokemon'> Back </a>
            
@@ -40,5 +46,7 @@ function Show({pokemon}) {
     </body>
   )
 }
+}
+ 
 
-export default Show
+module.exports = Show

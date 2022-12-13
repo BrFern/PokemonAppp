@@ -7,7 +7,7 @@ export default class New extends Component {
         <h1> New Pokemon Page</h1>
         <form action="/pokemon" method="post">
             Name: <input type = "text" name="name"/> <br/>
-            Image : <input type = "url" name="image"/> <br/> 
+            Image : <input type = "text" name="image"/> <br/> 
             <input type = "submit" name ="" value="Create Pokemon"></input>
 
             {/* Look into putting the image there */}
