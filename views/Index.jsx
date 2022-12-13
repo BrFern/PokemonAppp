@@ -1,5 +1,5 @@
-import React from 'react'
-import pokemon from '../models/pokemon'
+import React from 'react';
+import pokemons from '../models/pokemon';
 
 const headerStyle = {
     color: '#ffffff',
@@ -16,27 +16,24 @@ const bodyStyle = {
 
 }
 
-const listStyle = {
+// const listStyle = {
 
-}
+// }
 
 function Index({pokemons}) {
   return (
     <div >
         <h1 style = {headerStyle}> See all the Pokemon! </h1> 
         <body style = {bodyStyle}>
-            <nav> <a href="/pokemon/new"> Create a new Pokemon</a></nav>
+            <nav> <a href="/pokemon/new"> Create a new Pokemon!</a></nav>
         <ul>
             {pokemons.map((pokemon, i) => {
                 return (
-                    
                     <li key = {i}>
                         <a href = {`/pokemon/${i}`}>
-                       
                         {pokemon.name.charAt(0).toUpperCase()}
                         {pokemon.name.slice(1)} 
                         </a>
-                
                     </li>
                 )
             })}
@@ -51,7 +48,3 @@ function Index({pokemons}) {
 export default Index
 
 
-// {pokemons.name.charAt(0).toUpperCase()}
-// {pokemons.name.slice(1)} 
-
-//Making only the first letter be a capital

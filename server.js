@@ -1,6 +1,10 @@
+require('dotenv').config();
 const express = require ('express');
 const pokemon = require('./models/pokemon.js');
 const app = express();
+const mongoose = require('mongoose');
+const Pokemon = require ("./models/pokemon")
+// import mongoose from "mongoose";
 
 
 app.set('view engine', 'jsx');
@@ -10,6 +14,17 @@ app.engine('jsx', require('express-react-views').createEngine());
 
 app.use(express.urlencoded({extended:false}));
 
+//Connect to Mongoose/Remove Deprication Warnings
+mongoose.set('strictQuery', true);
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+mongoose.connection.once('open', ()=>{
+  console.log('connected to mongo');
+})
+
+
 //GET Route
 
 app.get("/" , (req, res) => {
@@ -17,11 +32,16 @@ app.get("/" , (req, res) => {
    
 } )
 
-//GET Route Pokemon
+//GET Route Pokemon--Index?
 
 app.get ("/pokemon", (req, res) => {
     res.render("Index", {pokemons:pokemon})
-    
+    Pokemon.find({}, (error, allPokemon) => {
+        res.render('pokemon/Index',{
+            pokemon: allPokemon
+        })
+    })
+     
 })
 
 
@@ -45,17 +65,20 @@ app.post('/pokemon', (req,res) => {
     } else {
         req.body.name = false;
     }
+   Pokemon.create(req.body, (error, createdPokemon) => {
+    res.send(createdPokemon)
+    res.redirect('./models/pokemon')
+   })
 } )
 
-//add pokemon to the end of the array
-// pokemon.push(req.body.name);
-// console.log(pokemon)
-// res.redirect('/pokemon')
+
 
 //Show route
 
 app.get('/pokemon/:indexOfPokemonArray', (req,res) => {
+    // pokemons.findById(req.params.id) //Added
     res.render("Show",{pokemons: pokemon[req.params.indexOfPokemonArray]});
+        // pokemon : foundPokemon //Added
 });
 
 app.listen(3000, () => {
