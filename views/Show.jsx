@@ -18,19 +18,21 @@ const headerTwo = {
 
 }
 
+
+
 const imageStyle = {
-  alignContent: 'center'
+  
 }
-function Show({pokemons}) {
+function Show({pokemon}) {
 
   return (
     <body style= {divStyle}>
     <div>
      <h1 style = {headingStyle}> Gotta Catch 'Em All!</h1>
-           <h2 style= {headerTwo}> {pokemons.name.charAt(0).toUpperCase()}
-            {pokemons.name.slice(1)} </h2>
+           <h2 style= {headerTwo}> {pokemon.name.charAt(0).toUpperCase()}
+            {pokemon.name.slice(1)} </h2>
             <div style = {imageStyle}>
-           <img src={`${pokemons.img}.jpg`}  />
+           <img style={{display: "block", alignItems: "center", justifyContent: "center", border: "solid", width: "600px", margin: "auto"}} src={`${pokemons.img}.jpg`}  />
            </div>
            <a href ='/pokemon'> Back </a>
            

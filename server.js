@@ -14,6 +14,10 @@ app.engine('jsx', require('express-react-views').createEngine());
 
 app.use(express.urlencoded({extended:false}));
 
+// app.get("/pokemon", (req, res) => {
+//     Pokemon
+// })
+
 //Connect to Mongoose/Remove Deprication Warnings
 mongoose.set('strictQuery', true);
 mongoose.connect(process.env.MONGO_URI, {
@@ -25,24 +29,37 @@ mongoose.connection.once('open', ()=>{
 })
 
 
-//GET Route
+
+// Route
 
 app.get("/" , (req, res) => {
     res.send('Welcome to the Pokemon App!')
    
 } )
 
-//GET Route Pokemon--Index?
+//INDEX Route Pokemon
 
-app.get ("/pokemon", (req, res) => {
-    res.render("Index", {pokemons:pokemon})
-    Pokemon.find({}, (error, allPokemon) => {
-        res.render('pokemon/Index',{
-            pokemon: allPokemon
-        })
-    })
+// app.get ("/pokemon", (req, res) => {
+//     res.render("Index", {pokemons:pokemon})
+//     Pokemon.find({}, (error, allPokemon) => {
+//         res.render('Index',{pokemon: allPokemon})
+//         // res.redirect('/pokemon')
+//     })
      
-})
+// })
+
+app.get("/pokemon", (req, res) => {
+    //find all pokemon
+    Pokemon.find({}, (error, allPokemon)=>{
+      res.render('Index', {
+        pokemons: allPokemon
+      })
+    }) 
+  });
+  
+
+
+
 
 
 //Pokemon route
@@ -59,17 +76,12 @@ app.get('/pokemon/new', (req,res) => {
 
 //POST
 
-app.post('/pokemon', (req,res) => {
-    if(req.body.name === 'true') {
-        req.body.name = true;
-    } else {
-        req.body.name = false;
-    }
+app.post('/pokemon', (req,res) => 
    Pokemon.create(req.body, (error, createdPokemon) => {
-    res.send(createdPokemon)
-    res.redirect('./models/pokemon')
+    // res.send(createdPokemon)
+    res.redirect('/pokemon')
    })
-} )
+ )
 
 
 
