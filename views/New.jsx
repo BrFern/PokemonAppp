@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 const headerStyle = {
   color: "#ffffff",
@@ -13,27 +13,24 @@ const bodyStyle = {
   bakgroundRepeat: "no-repeat",
 };
 
-const formStyle = {
-  
-}
+const formStyle = {};
 
 export default class New extends Component {
   render() {
     return (
-      <body style = {bodyStyle} >
-      <div>
-        <h1 style = {headerStyle}> Add a new Pokemon! </h1>
-        <form action="/pokemon" method="POST">
-            Name: <input type = "text" name="name"/> <br/>
-            Image : <input type = "text" name="img"/> <br/> 
-            <input type = "submit" name ="" value="Create Pokemon"></input>
+      <body style={bodyStyle}>
+        <div>
+          <h1 style={headerStyle}> Add a new Pokemon! </h1>
+          <form action="/pokemon" method="POST">
+            Name: <input type="text" name="name" /> <br />
+            Image : <input type="text" name="img" /> <br />
+            <input type="submit" name="" value="Create Pokemon"></input>
+          </form>
 
-        </form>
-
-        <a href= 'https://pokemondb.net/pokedex/national'> Pokedex </a> 
-      </div>
+          <a href="https://pokemondb.net/pokedex/national"> Pokedex </a>
+        </div>
       </body>
-    )
+    );
   }
 }
 

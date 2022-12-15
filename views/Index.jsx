@@ -1,5 +1,4 @@
-import React, {Component} from "react";
-
+import React, { Component } from "react";
 
 const headerStyle = {
   color: "#ffffff",
@@ -20,8 +19,8 @@ const bodyStyle = {
 
 class Index extends Component {
   render() {
-    const pokemons = this.props.pokemons
-    
+    const pokemons = this.props.pokemons;
+
     return (
       <div>
         <h1 style={headerStyle}> See all the Pokemon! </h1>
@@ -34,12 +33,18 @@ class Index extends Component {
             {pokemons.map((pokemon, i) => {
               return (
                 <li key={i}>
-                  <a href={`/pokemon/${pokemon.id}`} >
+                  <a href={`/pokemon/${pokemon.id}`}>
                     {/* {pokemon.name.charAt(0).toUpperCase()}
                     {pokemon.name.slice(1)} */}
                     {pokemon.name}
                   </a>
-
+                  <form
+                    action={`/pokemon/${pokemon.id}?_method=DELETE`}
+                    method="POST"
+                  >
+                    <input type="submit" value="DELETE" />
+                  </form>
+                  <a href={`/pokemon/${pokemon.id}/edit`}>Edit this Pokemon</a>
                 </li>
               );
             })}
@@ -50,4 +55,4 @@ class Index extends Component {
   }
 }
 
-module.exports = Index
+module.exports = Index;
