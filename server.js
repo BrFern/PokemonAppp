@@ -39,8 +39,23 @@ app.get("/", (req, res) => {
 //Create 
 
 // app.get("pokemon/pokedex", (req, res) => {
-  
-// }
+//   const pokedex = 
+//      [
+//      {name: "bulbasaur", img: "http://img.pokemondb.net/artwork/bulbasaur"},
+//      {name: "ivysaur", img: "http://img.pokemondb.net/artwork/ivysaur"},
+//      {name: "venusaur", img: "http://img.pokemondb.net/artwork/venusaur"},
+//      {name: "charmander", img: "http://img.pokemondb.net/artwork/charmander"},
+//      {name: "charizard", img: "http://img.pokemondb.net/artwork/charizard"},
+//      {name: "squirtle", img: "http://img.pokemondb.net/artwork/squirtle"},
+//      {name: "wartortle", img: "http://img.pokemondb.net/artwork/wartortle"}
+//   ];
+// });
+
+// Pokemon.deleteMany({}).then((data)=> {
+//   Pokemon.create(pokedex).then((data) => {
+//     res.redirect("/pokemon");
+//   });
+// });
 
 //INDEX Route Pokemon
 
@@ -101,7 +116,7 @@ app.get("/pokemon/:id/edit", (req, res) => {
 
 //UPDATE (Put route)
 
-app.put('pokemon/:id', (req, res) => {
+app.put("/pokemon/:id", (req, res) => {
   //IMPORTANT: SHe has a check if "fruit" is ready to eat 
   //find pokemon by id and uppdate it
   //redirect to fruit show page

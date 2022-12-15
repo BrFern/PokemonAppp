@@ -39,12 +39,12 @@ class Index extends Component {
                     {pokemon.name}
                   </a>
                   <form
-                    action={`/pokemon/${pokemon.id}?_method=DELETE`}
+                    action={`/pokemon/${pokemon._id}?_method=DELETE`}
                     method="POST"
                   >
                     <input type="submit" value="DELETE" />
                   </form>
-                  <a href={`/pokemon/${pokemon.id}/edit`}>Edit this Pokemon</a>
+                  <a href={`/pokemon/${pokemon._id}/edit`}>Edit this Pokemon</a>
                 </li>
               );
             })}

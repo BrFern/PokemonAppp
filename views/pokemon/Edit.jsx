@@ -24,8 +24,7 @@ export default class Edit extends Component {
             <a href="/pokemon"> No changes needed </a>
           </nav>
           <h1 style={headerStyle}> Edit Pokemon </h1>
-          <form action = {`/pokemon/${this.props.pokemon.id}?_method=PUT`} method="POST"></form>
-          <form>
+          <form action = {`/pokemon/${this.props.pokemon._id}?_method=PUT`} method="POST">
             Name:{" "}
             <input
               type="text"
@@ -47,5 +46,6 @@ export default class Edit extends Component {
     );
   }
 }
+
 
 
