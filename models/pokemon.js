@@ -7,7 +7,7 @@ const pokemonSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    image : {
+    img : {
         type: String,
         require: true
     },

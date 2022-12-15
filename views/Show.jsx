@@ -38,7 +38,7 @@ class Show extends Component {
             {pokemon.name.slice(1)}  */}
             </h2>
             <div>
-           <img style={{display: "block", alignItems: "center", justifyContent: "center", border: "solid", width: "600px", margin: "auto"}} src={`${pokemon.image}.jpg`}  />
+           <img style={{display: "block", alignItems: "center", justifyContent: "center", border: "solid", width: "600px", margin: "auto"}} src={`${pokemon.img}.jpg`}  />
            </div>
            <a href ='/pokemon'> Back </a>
            

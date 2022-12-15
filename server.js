@@ -40,14 +40,6 @@ app.get("/" , (req, res) => {
 
 //INDEX Route Pokemon
 
-// app.get ("/pokemon", (req, res) => {
-//     res.render("Index", {pokemons:pokemon})
-//     Pokemon.find({}, (error, allPokemon) => {
-//         res.render('Index',{pokemon: allPokemon})
-//         // res.redirect('/pokemon')
-//     })
-     
-// })
 
 app.get("/pokemon", (req, res) => {
     //find all pokemon
@@ -78,7 +70,7 @@ app.get("/pokemon/:id", (req, res) => {
 
 
 
-//POST
+//POST-Create Route
 
 app.post('/pokemon', (req,res) => 
    Pokemon.create(req.body, (error, createdPokemon) => {
